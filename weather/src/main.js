@@ -29,7 +29,7 @@ export default function App() {
         setErrormsg(null)
       }).catch((error) => {
         setCurrent(null)
-        setErrormsg(error)
+        setErrormsg("Invalid city")
       })
   }
 
@@ -52,7 +52,7 @@ export default function App() {
           <Report current={current} />
           <Forecast forecast={forecast} />
         </div > </React.Fragment >}
-      {errormsg && <React.Fragment ><div className="error-message">Error:{errormsg.message}</div> </React.Fragment >}
+      {errormsg && <React.Fragment ><div className="error-message">Error: {errormsg}</div> </React.Fragment >}
     </div >
   );
 } 

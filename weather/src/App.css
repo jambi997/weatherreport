@@ -42,7 +42,11 @@ body{
   width: 30vw;
   height: 3vh;
   padding: 5px;
-  background: url("images/search.jpg") no-repeat right center;
+  background: url("images/search.jpg") no-repeat left center;
+  background-size: contain;
+  padding-left: 50px;
+  background-color: rgb(255, 255, 255);
+  font-size: 25px;
 }
 
 .weather-location{
