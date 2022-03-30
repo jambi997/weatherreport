@@ -14,7 +14,7 @@ export default function Forecast(props) {
             <td>{item.time.split(" ").shift()}</td>
             <td>{item.time.split(" ").pop()} </td>
             <td><img src={item.condition.icon} height="70px" ></img></td>
-            <td>{item.temp_c}° </td>
+            <td>{item.temp_c}° C</td>
           </tr>)}
         </tbody>
 

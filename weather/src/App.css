@@ -97,9 +97,7 @@ body{
   text-align: center;
   justify-content: space-around;
 }
-.weather-output-forecast{
 
-}
 .weather-output-forecast-table{
   display: flex;
   flex-direction: row;
