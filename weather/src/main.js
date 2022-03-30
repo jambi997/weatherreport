@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import WeatherService from "./services/weatherService";
 import './App.css';
-import { today } from "./componenets/today";
+import { today } from "./components/today";
+import Forecast from "./components/forecast";
+import Report from "./components/report";
 
 const weatherService = new WeatherService()
 
@@ -47,59 +49,8 @@ export default function App() {
           <div className="weather-date">
             {location.localtime}, {today(cDay2)}
           </div>
-          <div className="weather-content">
-            <div className="weather-icon">
-              <img src={current.condition.icon} height="150px" ></img>
-              <div >
-                <h1>
-                  {current.temp_c}° celsius
-                </h1>
-                {current.condition.text}
-              </div>
-            </div>
-            <div className="weather-table">
-              <div className="weather-column">
-                <div>
-                  {current.cloud}<div>cloud</div>
-                </div>
-                <div>
-                  {current.temp_f}°<div>farenheit</div>
-                </div>
-              </div>
-              <div className="weather-column">
-                <div>
-                  {current.gust_kph}kph <div>gust</div>
-                </div>
-                <div>
-                  {current.humidity} <div>humidity</div>
-                </div>
-              </div>
-              <div className="weather-column">
-                <div>
-                  {current.wind_degree}° <div>wind degree</div>
-                </div>
-                <div>
-                  {current.wind_kph}kph <div>wind</div>
-                </div>
-              </div>
-            </div>
-          </div >
-          <div className="weather-output-forecast">
-            <h1>
-              forecast:
-            </h1>
-            <table >
-              <tbody className="weather-output-forecast-table">
-                {forecast.map((item, idx) => <tr key={idx} className="weather-output-forecast-tr">
-                  <td>{item.time.split(" ").shift()}</td>
-                  <td>{item.time.split(" ").pop()} </td>
-                  <td><img src={item.condition.icon} height="70px" ></img></td>
-                  <td>{item.temp_c}° </td>
-                </tr>)}
-              </tbody>
-
-            </table>
-          </div>
+          <Report current={current} />
+          <Forecast forecast={forecast} />
         </div > </React.Fragment >}
       {errormsg && <React.Fragment ><div className="error-message">Error:{errormsg.message}</div> </React.Fragment >}
     </div >
