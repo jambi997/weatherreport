@@ -8,6 +8,9 @@ body{
   overflow-x: hidden; 
   font-family: 'Roboto', sans-serif;
 }
+@media all and (min-width: 500px) {
+  
+}
 
 .App {
   display: flex;

@@ -4,10 +4,11 @@ import './App.css';
 import { today } from "./components/today";
 import Forecast from "./components/forecast";
 import Report from "./components/report";
+import Media from "react-media"
 
 const weatherService = new WeatherService()
 
-export default function App() {
+export default function Main(props) {
   const [location, setLocation] = useState(null)
   const [current, setCurrent] = useState(null)
   const [forecast, setForecast] = useState([])
@@ -35,13 +36,15 @@ export default function App() {
 
   return (
     <div className="weather">
+
       <form className="weather-form" onSubmit={weatherHandler}>
         <div className="weather-input">
           <input name="city" type="text" defaultValue={"budapest"} className="input"></input>
         </div>
       </form>
-      {!errormsg && current && location && forecast && <React.Fragment> <div>
-      </div>
+      {!errormsg && current && location && forecast && <React.Fragment>
+        <div>
+        </div>
         <div className="weather-output-current">
           <div className="weather-location">
             {location.region}, {location.country}
@@ -51,7 +54,8 @@ export default function App() {
           </div>
           <Report current={current} />
           <Forecast forecast={forecast} />
-        </div > </React.Fragment >}
+        </div >
+      </React.Fragment >}
       {errormsg && <React.Fragment ><div className="error-message">Error: {errormsg}</div> </React.Fragment >}
     </div >
   );
