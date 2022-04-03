@@ -5,6 +5,8 @@ import { today } from "./components/today";
 import Forecast from "./components/forecast";
 import Report from "./components/report";
 import Media from "react-media"
+import SearchBar from "./components/searchbar";
+import SearchBar2 from "./components/searchbar2";
 
 const weatherService = new WeatherService()
 
@@ -36,11 +38,8 @@ export default function Main(props) {
 
   return (
     <div className="weather">
-
       <form className="weather-form" onSubmit={weatherHandler}>
-        <div className="weather-input">
-          <input name="city" type="text" defaultValue={"budapest"} className="input"></input>
-        </div>
+        <SearchBar />
       </form>
       {!errormsg && current && location && forecast && <React.Fragment>
         <div>
