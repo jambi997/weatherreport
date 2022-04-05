@@ -39,7 +39,7 @@ export default function Main(props) {
   return (
     <div className="weather">
       <form className="weather-form" onSubmit={weatherHandler}>
-        <SearchBar />
+        <SearchBar2 />
       </form>
       {!errormsg && current && location && forecast && <React.Fragment>
         <div>
